@@ -9,15 +9,15 @@ export default {
   ],
   theme: {
     screens: {
-      ss: { max : "240px"},
-      sm: { max: "320px" },
-      sl: { max: "480px" },
-      ms: { max: "600px" },
-      mm: { max: "768px" },
-      ml: { max: "900px" },
-      ls: { max: "1000px" },
-      lm: { max: "1200px" },
       lg: { min: "1400px" },
+      lm: { max: "1200px" },
+      ls: { max: "1000px" },
+      ml: { max: "900px" },
+      mm: { max: "768px" },
+      ms: { max: "600px" },
+      sl: { max: "480px" },
+      sm: { max: "380px" },
+      ss: { max : "280px"},
     },
     extend: {
       colors: {
