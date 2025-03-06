@@ -1,11 +1,14 @@
-import { BannerHome } from "@/components/BannerHome";
+import BannerHome from "@/components/BannerHome";
 import FooterContacts from "@/components/FooterContacts";
 import MoreAboutMe from "@/components/MoreAboutMe";
 import ViewProjects from "@/components/ViewProjects";
-import { queryProjects } from "@/service/contentful";
+import { fetchContentful } from "@/service/contentful";
 
 const Home = async () => {
-  const projects = await queryProjects();
+  const projects = await fetchContentful({
+    select: ['cover', "description", "projectName", "title"],
+    cache: "force-cache"
+  });
 
   return (
     <div>
