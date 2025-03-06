@@ -1,6 +1,6 @@
 'use client';
 
-import React, { MouseEventHandler, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CloseIcon from "@/actions/unsee.svg"; 
 import CopyIcon from "@/actions/copy.svg"; 
 import CopiedIcon from "@/actions/success.svg"; 
@@ -66,11 +66,11 @@ const SendMeEmail = () => {
       >{
         isShowEmail ?
         <div 
-          className="flex relative h-11 items-center bg-[rgb(0,5,0)] justify-between border-2 border-green-600 rounded-full sl:flex-col sl:h-28 sl:rounded-xl"
+          className="flex relative h-11 items-center bg-[rgb(0,5,0)] justify-between border-2 border-green-600 rounded-full sl:h-auto sl:flex-col sl:rounded-md"
         >
-          <div className="flex h-full items-center justify-between sl:flex-col sl:w-full">
+          <div className="flex h-full items-center justify-between sl:flex-col">
             <div
-              className={`flex items-center gap-2 h-full border-r-2 px-5 border-green-600 ${ copyState === "copied" ? "opacity-100" : "opacity-80 hover:opacity-100"} sl:border-r-none sl:border-b-2`}
+              className={`flex items-center gap-2 h-full border-r-2 px-5 border-green-600 ${ copyState === "copied" ? "opacity-100" : "opacity-80 hover:opacity-100"} sl:border-r-0 sl:py-2.5`}
               onClick={copyEmailForClipboard}
             >
               <LabelIcon className="size-6" />
@@ -85,11 +85,11 @@ const SendMeEmail = () => {
           </div>
 
           <div 
-            className="flex items-center h-full px-4 justify-center opacity-60 hover:opacity-100"
+            className="flex items-center h-full px-4 justify-center opacity-60 hover:opacity-100 sl:py-2.5 sl:px-0"
             onClick={handleShowEmail(false)}
           >
             <CloseIcon 
-              className=" size-6 shrink-0" 
+              className="size-6 shrink-0" 
             />
           </div>
         </div> :

@@ -1,26 +1,24 @@
 import MyStack from "./MyStack";
 import SendMeEmail from "./SendMeEmail";
 
-
-
 const BannerHome = ({}) => {
   return (
     <header
-      className="flex banner relative w-full items-center h-full ml:flex-col-reverse ml:pr-5 ml:justify-end"
+      className="flex banner relative w-full items-center h-full ml:flex-col-reverse ml:justify-end"
     >
-      <div className="flex border-2 py-5 w-full border-neutral-900 rounded-2xl sl:border-none sm:py-1">
-        <div className="flex gap-10 py-5 flex-col w-full ml:gap-14 sl:gap-4 sl:py-2 sm:gap-1">
+      <div className="flex border-2 py-5 w-full border-neutral-900 rounded-2xl sl:border-none ">
+        <div className="flex gap-10 py-5 flex-col w-full ml:gap-14">
 
-          <div className="flex flex-col items-center gap-10 text-center mm:gap-8 sl:gap-5 sm:gap-1">
+          <div className="flex flex-col items-center gap-10 text-center mm:gap-8">
             <h2
-              className="jetbrains-mono text-7xl tracking-wide font-[600] ml:text-5xl mm:text-4xl sl:text-2xl"
+              className="jetbrains-mono text-7xl tracking-wide font-[600] ls:text-6xl ml:text-5xl mm:text-4xl sl:text-4xl"
             >
               MARCELO GOMES
             </h2>
 
-            <div className="w-[60%] ml:w-[75%] mm:w-full">
+            <div className="w-[60%] ls:w-[70%] sm:w-full">
               <h3
-                className="tracking-wide text-[0.94rem] ms:w-full font-medium text-neutral-300 sl:text-[0.86rem] sl:font-light"
+                className="tracking-wide text-[0.94rem] font-medium text-neutral-300 ms:w-full sl:text-[0.9rem] sl:font-light"
               >
                 Desenvolvedor web apaixonado, transformando ideias em soluções inovadoras com JavaScript, TypeScript, React, Vue e Next.js.
               </h3>
@@ -44,4 +42,4 @@ const BannerHome = ({}) => {
   )
 }
 
-export { BannerHome };
+export default BannerHome;

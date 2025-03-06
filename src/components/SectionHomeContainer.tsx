@@ -11,7 +11,7 @@ const SectionHomeContainer = (
 ) => {
   return (
     <section
-      className="mt-24 mb-8 pr-16 ls:pr-10 lm:pr-5"
+      className="mt-24 mb-8 pr-16 ls:pr-10 ml:pr-0"
     >
       <div className={`flex items-center gap-3 mb-16`}>
         { Icon ? <Icon className="w-8 h-8" /> : "" }

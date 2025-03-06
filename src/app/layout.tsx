@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Poppins, Roboto_Condensed, Inter } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { AsideContatacts } from "@/components/AsideContacts";
 import { EmailContextProvider } from "@/contexts/useEmail";
@@ -31,12 +31,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`flex ${inter.variable} ${jetBrainsMono.variable} antialiased h-[100vh] max-w-[1366px] pl-10 overflow-hidden lm:pl-0 ml:flex-col ml:pl-10`}
+        className={`flex ${inter.variable} ${jetBrainsMono.variable} antialiased h-[100vh] max-w-[1366px] pl-10 overflow-hidden ls:pl-0 ml:flex-col ml:pl-8 sm:pl-4`}
       >
         <EmailContextProvider email={email}>
           <AsideContatacts />
           
-          <main className="w-full overflow-y-scroll pr-10 lm:pr-0 ml:px-5">
+          <main className="w-full overflow-y-scroll pr-10 ls:pr-0 ml:pr-8 sm:pr-4">
             {children}
           </main>
         </EmailContextProvider>

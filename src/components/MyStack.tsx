@@ -19,20 +19,20 @@ const MyStack = () => {
 
   return (
     <div 
-      className="px-16 pt-3 mm:px-10 mm:pt-0 sl:px-2"
+      className="px-16 pt-3 mm:px-10 mm:pt-0 sl:px-6"
     >
       <h3 className="text-[1rem] text-neutral-400 jetbrains-mono font-bold sl:text-[0.9rem]">
         Minha stack:
       </h3>
       
-      <ul className="flex gap-x-12 gap-y-8 py-10 flex-wrap mm:py-5 items-center sl:py-1 sl:gap-x-4 sl:gap-y-4">{
+      <ul className="flex gap-x-12 gap-y-8 py-10 items-center flex-wrap mm:py-6">{
         stacks.map(([Icon, title]) => (
           <li 
             className=""
             key={title}
             title={title}
           >
-            <Icon className="size-8 fill-white sl:size-6" />
+            <Icon className="size-8 fill-white sl:size-7" />
           </li>
         ))  
       }</ul>
