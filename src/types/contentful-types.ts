@@ -1,15 +1,17 @@
+import { BLOCKS, TopLevelBlockEnum } from "@contentful/rich-text-types";
+
 export type RichText = {
-  nodeType: string;
-  data: Record<string, any>;
-  content: RichTextContent[];
+  nodeType: BLOCKS.DOCUMENT,
+  data: Record<string, any>,
+  content: RichTextContent[]
 };
 
 type RichTextContent = {
-  nodeType: string;
+  nodeType: TopLevelBlockEnum;
   value?: string;
   marks?: RichTextMark[];
   data: Record<string, any>;
-  content?: RichTextContent[];
+  content: RichTextContent[];
 };
 
 type RichTextMark = {
