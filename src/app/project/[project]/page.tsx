@@ -1,5 +1,4 @@
 import moment from "moment";
-import "moment/locale/pt-BR";
 
 import { fetchRepository } from "@/service/github";
 import { fetchContentful, getImageUrlByLink } from "@/service/contentful";
@@ -56,7 +55,7 @@ const ProjectPage = async (
           <h1
             className="shrink jetbrains-mono text-5xl font-bold ml:text-3xl ms:text-2xl"
           >
-            {"Master Engine Project Major Master World"}
+            {fields.title}
           </h1>
           
           <div
@@ -96,7 +95,7 @@ const ProjectPage = async (
         content={fields.content}
       />
       
-      <ul className="flex gap-4 text-neutral-400 my-5">
+      <ul className="flex gap-4 flex-wrap text-neutral-400 my-5">
         {projectDetails.topics.map((topic, index) => (
           <li
             key={index}
