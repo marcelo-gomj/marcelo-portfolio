@@ -1,8 +1,9 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
-import "./globals.css";
 import { AsideContatacts } from "@/components/AsideContacts";
-import { EmailContextProvider } from "@/contexts/useEmail";
+import { ContactsContextProvider } from "@/contexts/useContacts";
+import { ContactsContextProps } from "@/types/global";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,20 +27,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const email = String(process.env.MY_EMAIL);
+  const contacts: ContactsContextProps = {
+    email: String(process.env.MY_EMAIL),
+    github: String(process.env.GITHUB),
+    instagram: String(process.env.INSTAGRAM)
+  }
 
   return (
     <html lang="pt-BR">
       <body
-        className={`flex ${inter.variable} ${jetBrainsMono.variable} antialiased h-[100vh] max-w-[1366px] pl-10 overflow-hidden ls:pl-0 ml:flex-col ml:pl-8 sl:pl-3`}
+        className={`flex relative ${inter.variable} ${jetBrainsMono.variable} antialiased h-[100vh] max-w-[1366px] pl-10 overflow-hidden ls:pl-0 ml:flex-col ml:pl-8 sl:pl-3`}
       >
-        <EmailContextProvider email={email}>
+        <ContactsContextProvider
+          contacts={contacts}
+        >
           <AsideContatacts />
-          
+
           <main className="w-full overflow-y-scroll pr-10 ls:pr-0 ml:pr-8 sl:pr-3">
             {children}
           </main>
-        </EmailContextProvider>
+        </ContactsContextProvider>
       </body>
     </html>
   );

@@ -1,10 +1,10 @@
 'use client'
 import { useContext } from "react";
 import SectionHomeContainer from "./SectionHomeContainer";
-import { EmailContext } from "@/contexts/useEmail";
+import { ContactsContext } from "@/contexts/useContacts";
 
 const FooterContacts = () => {
-  const { email } = useContext(EmailContext);
+  const { email } = useContext(ContactsContext);
 
   return (
     <footer>
@@ -13,7 +13,9 @@ const FooterContacts = () => {
       >
         <p
           className="mb-28"
-        >Meu email: { email }</p>
+        >
+          Meu email: { email }
+        </p>
       </SectionHomeContainer>
     </footer>
   )
