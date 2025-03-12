@@ -1,17 +1,21 @@
 'use client';
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { MouseEvent, MouseEventHandler, useContext, useEffect, useState } from "react";
 import CloseIcon from "@/actions/unsee.svg"; 
 import CopyIcon from "@/actions/copy.svg"; 
 import CopiedIcon from "@/actions/success.svg"; 
-import { EmailContext } from "@/contexts/useEmail";
+import { ContactsContext } from "@/contexts/useContacts";
 
 type CopyStates =  "copy" | "copied" | "no-copied";
+type SendMeEmailProps = {
+  extraAction ?: () => void, 
+  initialState ?: boolean
+}
 
-const SendMeEmail = () => {
+const SendMeEmail = ({ extraAction, initialState } : SendMeEmailProps) => {
   const [isSticky, setIsSticky] = useState(false);
-  const [isShowEmail, setIsShowEmail] = useState(false);
-  const { email } = useContext(EmailContext);
+  const [isShowEmail, setIsShowEmail] = useState(initialState || false);
+  const { email } = useContext(ContactsContext);
   const [copyState, setCopyState] = useState("copy" as CopyStates);
 
   useEffect(() => {
@@ -25,10 +29,15 @@ const SendMeEmail = () => {
       setIsSticky(bannerPositonBottom < 0)
     }
 
-    const mainElement = document.querySelector("main");
-
-    mainElement?.addEventListener("scroll", handleScroll);
-    return () => mainElement?.removeEventListener("scroll", handleScroll); // Limpeza do evento
+    
+    if(!extraAction){
+      const mainElement = document.querySelector("main");
+      
+      mainElement?.addEventListener("scroll", handleScroll);
+      
+      return () => mainElement?.removeEventListener("scroll", handleScroll);
+    }
+    
   }, [])
 
   const copyEmailForClipboard = async () => {
@@ -46,8 +55,9 @@ const SendMeEmail = () => {
 
   const handleShowEmail = (
     options: boolean
-  ) => () =>{
-    setIsShowEmail(options);
+  ) => (e:  MouseEvent<HTMLDivElement>) =>{
+    e.stopPropagation();
+    extraAction ? extraAction() : setIsShowEmail(options);
   }
 
   const [LabelIcon, StateLabel] = {
@@ -59,7 +69,7 @@ const SendMeEmail = () => {
 
   return (
     <div
-      className={`select-none cursor-pointer ${ isSticky ? 'fixed' : 'static' } right-4 bottom-4 z-50`}
+      className={`select-none cursor-pointer ${ !extraAction && isSticky ? 'fixed' : 'static' } right-4 bottom-4 z-50`}
     >
       <div
         className=""
