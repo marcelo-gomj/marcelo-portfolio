@@ -69,7 +69,7 @@ const AsideContatacts = () => {
             {
               ( actionContent === index) ?
               <div
-                className='absolute left-20 w-auto z-[999] -top-1/4 ml:left-1/2 ml:-translate-x-1/2 ml:top-15 border-[1px]'
+                className='absolute left-20 w-auto z-[999] -top-1/4 ml:left-1/2 ml:-translate-x-1/2 ml:top-15'
               >
                 <SendMeEmail
                   extraAction={() => setActionContent(null)}
